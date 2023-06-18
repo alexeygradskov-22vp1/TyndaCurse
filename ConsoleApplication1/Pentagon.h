@@ -1,8 +1,6 @@
 #pragma once
 #include"Shape.h"
 class Pentagon:public Shape {
-private:
-	POINT points[5];
 public:
 	Pentagon() {};
 	Pentagon(int x1, int y1, int R1, COLORREF color);

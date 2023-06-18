@@ -18,8 +18,8 @@ ComplexFigure::ComplexFigure(Circle* _c, Pentagon* _p){
 	}
 };
 void ComplexFigure::show() {
-	circle.show();
 	pentagon.show();
+	circle.show();
 }
 void ComplexFigure::hide() {
 	circle.hide();
@@ -28,6 +28,7 @@ void ComplexFigure::hide() {
 void ComplexFigure::moveTo(int x1, int y1) {
 	circle.moveTo(x1, y1);
 	pentagon.moveTo(x1, y1);
-	circle.show();
 	pentagon.show();
+	circle.show();
+	
 }

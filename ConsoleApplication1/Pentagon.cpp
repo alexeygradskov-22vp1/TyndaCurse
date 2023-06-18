@@ -9,11 +9,17 @@ void Pentagon::show() {
 	HPEN pen;
 	HBRUSH brush;
 	double angle = 2 * M_PI / 5;
-	for (int i = 0; i < 5; i++) {
-		int x1 = x + R * cos(i * angle - 3.14159 / 10);
-		int y1 = y + R * sin(i * angle - 3.14159 / 10);
-		points[i] = { x1, y1 };
-	}
+	int x1 = x;
+	int y1 = y - R-(R*0,13);
+	int x2 = x + R * cos(0.31) + (R * 0, 15);
+	int y2 = y - R * sin(0.31) - (R * 0, 7);
+	int x3 = x + R * cos(0.94) + (R * 0, 9);
+	int y3 = y + R * sin(0.94) + (R * 0,12);
+	int x5 = x - R * cos(0.31) - (R * 0, 15);
+	int y5 = y - R * sin(0.31) - (R * 0, 7);
+	int x4 = x - R * cos(0.94) - (R * 0, 9);
+	int y4 = y + R * sin(0.94) + (R * 0, 12);
+	POINT points[] = {{x1,y1}, {x2,y2},{x3,y3},{x4,y4},{x5,y5}};
 	if (points[0].x > rt.right ||
 		points[1].y > rt.bottom || 
 		points[3].x<rt.left||
@@ -35,6 +41,10 @@ void Pentagon::hide() {
 	brush = CreateSolidBrush(RGB(242,242 ,242));
 	SelectObject(hdc, pen);
 	SelectObject(hdc, brush);
+	POINT points[] = { {x , y - R - (R * 0,13)},{x + R * cos(0.31) + (R * 0, 15),y - R * sin(0.31) - (R * 0, 7)}
+		,{ x + R * cos(0.94) + (R * 0, 9), y + R * sin(0.94) + (R * 0,12)},
+			{x - R * cos(0.94) - (R * 0, 9), y + R * sin(0.94) + (R * 0, 12)}
+	,{x - R * cos(0.31) - (R * 0, 15),y - R * sin(0.31) - (R * 0, 7)} };
 	Polygon(hdc, points, 5);
 	DeleteObject(pen);
 	DeleteObject(brush);
